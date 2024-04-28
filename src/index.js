@@ -6,10 +6,12 @@ import allRoutes from './routes';
 import passport from 'passport';
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from '../swagger-output.json'
+import cors from 'cors'
 dotenv.config()
 
 const app = express()
 app.use(express.json())
+app.use(cors())
 app.disable('x-powered-by');
 app.use(passport.initialize());
 mongoose.connect(process.env.DB_URL,{ useNewUrlParser: true, useUnifiedTopology: true })
